@@ -1,0 +1,7 @@
+# Evidence files are kept byte for byte (their SHA-256 lists must match on every platform).
+bundles/** -text
+bundles_box4_20261028/** -text
+outputs_voltagegpu_20261028/** -text
+outputs_voltagegpu_box4_20261029/** -text
+outputs_finalboss_20261029/** -text
+check.sh text eol=lf

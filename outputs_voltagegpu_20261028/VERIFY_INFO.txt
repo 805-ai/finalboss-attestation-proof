@@ -1,0 +1,6 @@
+voltage-verify 0.2.3 (PyPI), command: voltage-verify verify <bundle>
+Run by VoltageGPU on 2026-10-28 around 20:35 UTC, Windows 11, Python 3.12.
+Online mode: Intel PCS collateral and NVIDIA's JWKS fetched at run time.
+Input: FINALBOSS_VOLTAGE_BUNDLES_20261027.zip, SHA-256 b8bd5ddf001eaa67db6251513cf7b69674cae038994afa5900f2f8f2e0f3ff07
+(29 of 29 SHA256SUMS.txt entries matched before verification).
+One file per bundle below, named after the bundle path, holding the output exactly as printed.

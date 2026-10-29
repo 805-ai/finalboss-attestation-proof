@@ -2,7 +2,7 @@
 
 **What this is.** On October 27, 2026, FinalBoss Technology Inc. ran two of its engines, audited and hardened with Claude Mythos 5.1, inside an Intel TDX confidential VM with an NVIDIA H100 on VoltageGPU: the kernel gate (ring zero) and BEAST. During those runs the VM produced 29 attestation bundles. Each bundle binds a fresh challenge and a statement about the workload to an Intel TDX quote (signed by the CPU, chained to Intel's root) and to NVIDIA attestation tokens (signed by NVIDIA, chained to NVIDIA's root).
 
-**Who checked them.** VoltageGPU (Julien Aubry, founder) ran voltage-verify 0.2.3 on all 29 attestation bundles from FinalBoss's October 27 runs. All 29 returned VERIFIED. (October 28, 2026, about 20:35 UTC, with Intel's and NVIDIA's signing material fetched live.)
+**Who checked them.** VoltageGPU (Julien Aubry, founder) ran voltage-verify 0.2.3 on all 29 attestation bundles from FinalBoss's October 27 runs. All 29 returned VERIFIED. (October 28, 2026, about 20:35 UTC, with Intel's and NVIDIA's signing material fetched live.) His 29 outputs are in `outputs_voltagegpu_20261028/`, exactly as he sent them.
 
 **And the October 28 box.** On October 29, 2026 at 20:46 UTC, VoltageGPU ran voltage-verify 0.2.3 on four bundles from FinalBoss's October 28 kernel gate run (pod cmvse31cg0001jh081gdbrk8z, gate v9): cycle 1, cycle 4 (the cycle the signing key rotated), cycle 8 (the last cycle before the gate was killed on purpose) and cycle 14 (the last cycle, after the gate resumed). All four returned VERIFIED, 14 PASS lines each, no warnings. His four outputs are in `outputs_voltagegpu_box4_20261029/`, exactly as he sent them.
 
@@ -85,6 +85,7 @@ What it does not prove: the attestation shows what hardware the runs used and th
 
 - `bundles/` the 29 October 27 bundles (format `voltage-verify-bundle/1`) at the paths they had in the runs, plus `SHA256SUMS.txt`.
 - `bundles_box4_20261028/` the four October 28 bundles, plus `SHA256SUMS.txt`, byte for byte the list inside the zip sent to VoltageGPU (zip SHA-256 `f281e4c92a3f1c0957ddd2696216a8e794881edd9e3b746d7f5288266170b94b`).
+- `outputs_voltagegpu_20261028/` VoltageGPU's 29 outputs for the October 27 bundles, one file per bundle exactly as printed, with `SHA256SUMS.txt` and `VERIFY_INFO.txt` (tool version, date, input zip SHA-256), as Julien Aubry sent them.
 - `outputs_voltagegpu_box4_20261029/` VoltageGPU's four outputs for those bundles, with their own `SHA256SUMS.txt`, as Julien Aubry sent them.
 - `check.sh` the one command above.
 - `outputs_finalboss_20261029/` what voltage-verify 0.2.3 printed for each bundle when FinalBoss re-ran it on October 29, 2026 (online mode).
